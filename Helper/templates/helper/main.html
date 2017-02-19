@@ -1,0 +1,14 @@
+{% extends 'helper/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Welcome to NPPHelper ver.1.0</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        {% for system in systems %}
+          <p>{{ system }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
