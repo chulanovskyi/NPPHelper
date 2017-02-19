@@ -8,11 +8,10 @@ class SystemList(ListView):
     context_object_name = 'systems'
 
 
-class SystemDetail(DetailView):
-    model = System
+class ElementList(ListView):
     template_name = 'helper/elements.html'
+    context_object_name = 'elements'
 
-    def get_context_data(self, **kwargs):
-        context = super(SystemDetail, self).get_context_data(**kwargs)
-        context['elements'] = Element.objects.all()
-        return context
+    def get_queryset(self):
+        return Element.objects.filter(system_id=self.kwargs['sys_id'])
+
