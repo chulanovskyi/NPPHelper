@@ -8,10 +8,17 @@ class SystemList(ListView):
     context_object_name = 'systems'
 
 
-class ElementList(ListView):
-    template_name = 'helper/elements.html'
-    context_object_name = 'elements'
+class SystemDetail(DetailView):
+    template_name = 'helper/system_detail.html'
+    context_object_name = 'system'
+    model = System
+    slug_url_kwarg = 'sys_slug'
 
-    def get_queryset(self):
-        return Element.objects.filter(system_id=self.kwargs['sys_id'])
+
+class ElementDetail(DetailView):
+    template_name = 'helper/element_detail.html'
+    context_object_name = 'element'
+    model = Element
+    slug_url_kwarg = 'elem_slug'
+
 
