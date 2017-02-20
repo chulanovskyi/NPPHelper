@@ -1,0 +1,19 @@
+{% extends 'helper/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>{{ system }}</h1>
+        <h2>Описание системы:</h2>
+        <p>{{ system.info }}</p>
+        <h2>Элементы системы:</h2>
+{% for element in system.element_set.all %}
+  <a href="{% url 'element-detail' system.slug element.slug %}">
+    <p>{{ element }}</p>
+  </a>
+ {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
