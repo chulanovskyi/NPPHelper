@@ -1,0 +1,20 @@
+{% extends 'helper/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>{{ element }}</h1>
+        <h2>Информация об элементе:</h2>
+        <p>{{ element.info }}</p>
+        <h2>Расположение {{ element }}</h2>
+        <p>Ряд(ы): {{ element.row }}</p>
+        <p>Ось(оси): {{ element.axis }}</p>
+        {% if element.defects %}
+          <h2>Дефекты</h2>
+          <p>{{ element.defects | date }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
