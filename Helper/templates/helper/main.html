@@ -6,7 +6,7 @@
       <div class="col-md-8">
         <h1>Welcome to NPPHelper ver.1.0</h1>
         {% for system in systems %}
-          <a href="{% url 'element' system.id %}">
+          <a href="{% url 'system-detail' system.slug %}">
             <p>{{ system }}</p>
           </a>
         {% endfor %}
